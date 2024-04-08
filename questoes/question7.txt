@@ -1,0 +1,9 @@
+
+[media] 7) Um motorista que atende a uma chamada de celular é levado à desatenção, aumentando a possibilidade de acidentes ocorrerem em razão do aumento de seu tempo de reação. Considere dois motoristas, o primeiro atento e o segundo utilizando o celular enquanto dirige. Eles aceleram seus carros inicialmente a 1,00 m/s2 . Em resposta a uma emergência, freiam com uma desaceleração igual a 5,00 m/s2 . O motorista atento aciona o freio à velocidade de 14,0 m/s, enquanto o desatento, em situação análoga, leva 1,00 segundo a mais para iniciar a frenagem.
+Que distância o motorista desatento percorre a mais do que o motorista atento, até a parada total dos carros?
+
+a) 2,90 m
+b) 14,0 m
+c) 14,5 m
+d) 15,0 m
+e) 17,4 m

@@ -1,0 +1,8 @@
+
+[facil] 1) Um carro percorre uma estrada retilínea com velocidade constante de 20 m/s. Determine a distância percorrida pelo carro em 40 segundos.
+
+a) 400 m
+b) 800 m
+c) 600 m
+d) 1000 m
+e) 1200 m

@@ -1,0 +1,3 @@
+
+[dificil] 8) Um pêndulo simples é composto por uma massa de 100g presa a um fio de 1 metro de comprimento. A massa é solta de uma posição horizontal a uma altura de 0,5 metros acima do ponto de suspensão. Determine a velocidade da massa quando ela passar pelo ponto mais baixo de sua trajetória.
+

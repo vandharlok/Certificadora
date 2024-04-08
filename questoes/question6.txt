@@ -1,0 +1,17 @@
+
+
+[media] 6) (PUC/RJ - 2018) Uma carga q0 é colocada em uma posição fixa. Ao colocar uma carga q1 =2q0 a uma distância d de q0, q1 sofre uma força repulsiva de módulo F. Substituindo q1 por uma carga q2 na mesma posição, q2 sofre uma força atrativa de módulo 2F. Se as cargas q1 e q2 são colocadas a uma distância 2d entre si, a força entre elas é
+
+a) repulsiva, de módulo F
+
+ 
+b) repulsiva, de módulo 2F
+
+ 
+c) atrativa, de módulo F
+
+ 
+d) atrativa, de módulo 2F
+
+ 
+e) atrativa, de módulo 4F

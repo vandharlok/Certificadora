@@ -1,0 +1,21 @@
+
+[dificil] 9) Para demonstrar o processo de transformação de energia mecânica em elétrica, um estudante constrói um pequeno gerador utilizando:
+
+- um fio de cobre de diâmetro D enrolado em N espiras circulares de área A;
+
+- dois ímãs que criam no espaço entre eles um campo magnético uniforme de intensidade B; e
+
+- um sistema de engrenagens que lhe permite girar as espiras em torno de um eixo com uma frequência f.
+
+Ao fazer o gerador funcionar, o estudante obteve uma tensão máxima V e uma corrente de curto-circuito i.
+Para dobrar o valor da tensão máxima V do gerador mantendo constante o valor da corrente de curto i o estudante deve dobrar o(a)
+
+a) número de espiras.
+
+b) frequência de giro.    
+
+c) intensidade do campo magnético.  
+
+d) área das espiras.
+
+e) à diâmetro do fio.
