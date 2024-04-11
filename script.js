@@ -1,9 +1,35 @@
+
 const fs = require('fs').promises;
 const readline = require('readline').createInterface({
     input: process.stdin,
     output: process.stdout
 });
+function selectQuestion() {
+    readline.question('Selecione a questão que deseja fazer: ', question_choosed => {
+        console.log(`\nVocê selecionou a questão ${question_choosed}!`);
+        showQuestions(Number(question_choosed));
 
+        readline.question('\nResolva a questão e digite a alternativa correta: \n', answer => {
+            //nao ta certo o gabarito
+            const gabarito = {
+                question_1: "a",
+                question_2: "b",
+                question_3: "c",
+                question_4: "d",
+                question_5: "e",
+                question_6: "a",
+                question_7: "b",
+                question_8: "b",
+                question_9: "d",
+                question_10: "e"
+            };
+            const number_quest = Number(question_choosed);
+            compareResult(gabarito, answer, number_quest);
+
+            readline.close();
+        });
+    });
+}
 function compareResult(right_result, answer, questionNumber) {
     const questionKey = 'question_' + questionNumber;
 
@@ -73,29 +99,5 @@ readline.question('Escolha uma opção:\n1) Listar todas as questões \n2) Lista
     }
 });
 
-function selectQuestion() {
-    readline.question('Selecione a questão que deseja fazer: ', question_choosed => {
-        console.log(`\nVocê selecionou a questão ${question_choosed}!`);
-        showQuestions(Number(question_choosed));
 
-        readline.question('\nResolva a questão e digite a alternativa correta: \n', answer => {
-            //nao ta certo o gabarito
-            const gabarito = {
-                question_1: "a",
-                question_2: "b",
-                question_3: "c",
-                question_4: "d",
-                question_5: "e",
-                question_6: "a",
-                question_7: "b",
-                question_8: "c",
-                question_9: "d",
-                question_10: "e"
-            };
-            const number_quest = Number(question_choosed);
-            compareResult(gabarito, answer, number_quest);
 
-            readline.close();
-        });
-    });
-}
