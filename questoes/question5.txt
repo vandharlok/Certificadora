@@ -1,0 +1,8 @@
+Análise da Tensão em um Balanço Infantil
+media
+Um pai fez um balanço utilizando dois segmentos paralelos e iguais da mesma corda para fixar uma tábua a uma barra horizontal. Por segurança, opta por um tipo de corda cuja tensão de ruptura seja 25% superior à tensão máxima calculada nas seguintes condições: O ângulo máximo atingido pelo balanço em relação à vertical é igual a 90º; Os filhos utilizarão o balanço até que tenham uma massa de 24kg. Além disso, ele aproxima o movimento do balanço para o movimento circular uniforme, considera que a aceleração da gravidade é 10ms2 e despreza forças dissipativas. Qual é a tensão de ruptura da corda escolhida?
+120 N
+300 N
+360 N
+450 N
+900 N
