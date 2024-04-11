@@ -1,154 +1,103 @@
-/*
-const fs = require('fs').promises;
-
-async function lerArquivo(caminhoBase, nomeDoArquivo) {
-    const caminhoCompleto = `${caminhoBase}/${nomeDoArquivo}`;
-  
-    try {
-      const data = await fs.readFile(caminhoCompleto, 'utf8');
-      console.log(data);
-    } catch (err) {
-      console.error(err);
-    }
-  }
-
-
-
-
-const readline = require('readline').createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
-
-
-console.log("Ola, seja bem vindo ao projeto de Certificadora de Competencia 1")
-
-console.log("Aqui apresento a voce usuario, 10 questoes de Fisica, com seu respectivo titulo e dificuldade: ")
-
-let question_choosed
-// Pede ao usuário para digitar o nome e aguarda a entrada
-readline.question('Selecione a questao que deseja fazer :', question_choosed => {
-    console.log(`Voce selecionou a questao ${question_choosed}!`);
-
-    // Não esqueça de fechar a interface de leitura quando terminar
-    readline.close();
-});
-
-
-function showQuestions(){
-    switch (question_choosed) {
-    case 1:
-        console.log("Opção 1 selecionada: Titulo :  (facil).");
-        lerArquivo('./questoes', 'question1.txt');
-        break;
-    case 2:
-        console.log("Opção 2 selecionada:Titulo :  (facil)");
-        break;
-    case 3:
-        console.log("Opção 3 selecionada: Titulo :  (facil)");
-        break;
-    case 4:
-        console.log("Opção 4 selecionada: Titulo :  (facil)");
-        break;
-    case 5:
-        console.log("Opção 5 selecionada: Titulo :  (medio)");
-        break;
-    case 6:
-        console.log("Opção 6 selecionada: Titulo :  (medio)");
-        break;
-    case 7:
-        console.log("Opção 7 selecionada: Titulo :  (medio)");
-        break;
-    case 8:
-        console.log("Opção 8 selecionada: Titulo :  (dificil)");
-        break;
-    case 9:
-        console.log("Opção 9 selecionada: Titulo :  (dificil)");
-        break;
-    case 10:
-        console.log("Opção 10 selecionada: Titulo :  (dificil)");
-        break;
-    default:
-        console.log("Opção inválida.");
-    }
-}
-
-
-
-*/
-
 
 const fs = require('fs').promises;
 const readline = require('readline').createInterface({
     input: process.stdin,
     output: process.stdout
 });
+function selectQuestion() {
+    readline.question('Selecione a questão que deseja fazer: ', question_choosed => {
+        console.log(`\nVocê selecionou a questão ${question_choosed}!`);
+        showQuestions(Number(question_choosed));
 
-console.log("Ola, seja bem vindo ao projeto de Certificadora de Competencia 1")
-console.log("Aqui apresento a voce usuario, 10 questoes de Fisica, com seu respectivo titulo e dificuldade: ")
+        readline.question('\nResolva a questão e digite a alternativa correta: \n', answer => {
+            //nao ta certo o gabarito
+            const gabarito = {
+                question_1: "a",
+                question_2: "b",
+                question_3: "c",
+                question_4: "d",
+                question_5: "e",
+                question_6: "a",
+                question_7: "b",
+                question_8: "b",
+                question_9: "d",
+                question_10: "e"
+            };
+            const number_quest = Number(question_choosed);
+            compareResult(gabarito, answer, number_quest);
 
-// Função para ler arquivo
-async function lerArquivo(caminhoBase, nomeDoArquivo) {
-    const caminhoCompleto = `${caminhoBase}/${nomeDoArquivo}`;
-  
-    try {
-      const data = await fs.readFile(caminhoCompleto, 'utf8');
-      console.log(data);
-    } catch (err) {
-      console.error(err);
+            readline.close();
+        });
+    });
+}
+function compareResult(right_result, answer, questionNumber) {
+    const questionKey = 'question_' + questionNumber;
+
+    if (answer === right_result[questionKey]) {
+        console.log("A resposta fornecida está correta.");
+    } else {
+        console.log("A resposta fornecida está incorreta.");
     }
 }
 
-// Pede ao usuário para digitar o número da questão e aguarda a entrada
-readline.question('Selecione a questao que deseja fazer :', question_choosed => {
-    console.log(`Voce selecionou a questao ${question_choosed}!`);
-    showQuestions(Number(question_choosed)); // Converte question_choosed para número e chama showQuestions
-    readline.close();
+function showQuestions(question_choosed) {
+    const path = './questoes';
+    const name_file = `question${question_choosed}.txt`;
+    console.log(`\nQuestao ${question_choosed} selecionada:`);
+    readFile(path, name_file);
+}
+
+async function readFile(path, name_file) {
+    const complete_path = `${path}/${name_file}`;
+    try {
+        const data = await fs.readFile(complete_path, 'utf8');
+        console.log(data);
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+async function showAllQuestions() {
+    const questions = [];
+    for (let i = 1; i <= 10; i++) {
+        const question = await readFile('./questoes', `question${i}.txt`);
+        if (question) {
+            questions.push(question);
+        }
+    }
+   
+    selectQuestion(); 
+}
+
+async function invertQuestionsOrderAndShow() {
+    const questions = [];
+    for (let i = 10; i >= 1; i--) {
+        const question = await readFile('./questoes', `question${i}.txt`);
+        if (question) {
+            questions.push(question);
+        }
+    }
+    selectQuestion();
+}
+
+/////////////////////////////////////////////////////////////////////
+////////////////////////INTERFACE////////////////////////////////////
+
+console.log("Olá, seja bem-vindo ao projeto de Certificadora de Competência 1");
+
+readline.question('Escolha uma opção:\n1) Listar todas as questões \n2) Listar em Nivel de Dificuldade [asc]   \n3) Listar em Nivel de Dificuldade [desc]  \n', async (opcao) => {
+    if (opcao === '1') {
+        showAllQuestions();
+    } else if (opcao === '2') {
+        showAllQuestions();
+    } else if (opcao === '3') {
+        console.log("Aqui estão suas questoes invertidas de modo descendente de dificuldade:\n");
+        await invertQuestionsOrderAndShow();
+    } else {
+        console.log("Opção inválida.");
+        readline.close();
+    }
 });
 
-function showQuestions(question_choosed){
-    switch (question_choosed) {
-    case 1:
-        console.log("Opção 1 selecionada: Titulo :  (facil).");
-        lerArquivo('./questoes', 'question1.txt');
-        break;
-    case 2:
-        console.log("Opção 2 selecionada:Titulo :  (facil)");
-        lerArquivo('./questoes', 'question2.txt');
-        break;
-    case 3:
-        console.log("Opção 3 selecionada: Titulo :  (facil)");
-        lerArquivo('./questoes', 'question3.txt');
-        break;
-    case 4:
-        console.log("Opção 4 selecionada: Titulo :  (facil)");
-        lerArquivo('./questoes', 'question4.txt');
-        break;
-    case 5:
-        console.log("Opção 5 selecionada: Titulo :  (medio)");
-        lerArquivo('./questoes', 'question5.txt');
-        break;
-    case 6:
-        console.log("Opção 6 selecionada: Titulo :  (medio)");
-        lerArquivo('./questoes', 'question6.txt');
-        break;
-    case 7:
-        console.log("Opção 7 selecionada: Titulo :  (medio)");
-        lerArquivo('./questoes', 'question7.txt');
-        break;
-    case 8:
-        console.log("Opção 8 selecionada: Titulo :  (dificil)");
-        lerArquivo('./questoes', 'question8.txt');
-        break;
-    case 9:
-        console.log("Opção 9 selecionada: Titulo :  (dificil)");
-        lerArquivo('./questoes', 'question9.txt');
-        break;
-    case 10:
-        console.log("Opção 10 selecionada: Titulo :  (dificil)");
-        lerArquivo('./questoes', 'question10.txt');
-        break;
-    default:
-        console.log("Opção inválida.");
-    }
-}
+
+
