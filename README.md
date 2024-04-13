@@ -17,32 +17,7 @@ O projeto visa à criação de um sistema interativo para o ensino-aprendizagem 
 - [@Guilherme Renato Terra de Macedo](https://www.github.com/GuilhermeRenato10)
 
 
-## Instalação e execução
+## Instalação
 
-Requerimentos- 
-
-    sudo apt update
-    sudo apt install nodejs
-    sudo apt install npm
-
-Como executar- 
-
-    node script.js
-
-Estrutura dos arquivos- 
-
-    script.js
-    > questoes
-        question_all.txt
-        question1.txt
-        question2.txt
-        question3.txt
-        question4.txt
-        question5.txt
-        question6.txt
-        question7.txt
-        question8.txt
-        question9.txt
-        question10.txt
-    requirements.txt
+Após instalação do projeto pelo github, abra a pasta do projeto com alguma IDE e inicie algum servidor local, como por exemplo: VSCode para IDE e Live Server para servidor local.
 
