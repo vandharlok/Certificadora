@@ -1,8 +1,0 @@
-Velocidade Constante e Deslocamento
-facil
-Um carro percorre uma estrada retilínea com velocidade constante de 20 m/s. Determine a distância percorrida pelo carro em 40 segundos.
- 400 m
- 800 m
- 600 m
- 1000 m
- 1200 m
