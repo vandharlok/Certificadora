@@ -5,7 +5,7 @@ exports.getQuestions = async (req, res) => {
 
   try {
     const problems = await Question.findAll({
-      attributes: ['title', 'difficulty'],
+      attributes: ['title', 'difficulty', 'options', 'correctAnswer'],
       limit: 10,
       order: [['difficulty', order]]
     });

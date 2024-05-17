@@ -17,6 +17,14 @@ module.exports = {
         type: Sequelize.ENUM('1', '2', '3'),
         allowNull: false
       },
+      options: {
+        type: Sequelize.JSON, 
+        allowNull: false
+      },
+      correctAnswer: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
