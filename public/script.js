@@ -57,6 +57,7 @@ function handleUserResponse(questionId, shouldReanswer) {
 }
 
 function selectQuestion(listItem, question) {
+    console.log(question.difficulty);
     if (hasUserAnsweredQuestion(question.id)) {
         confirmReanswerQuestion(question.id, handleUserResponse);
     } else {
